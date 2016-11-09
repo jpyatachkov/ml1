@@ -199,7 +199,7 @@ class KMeans:
         plt.show()
 
 
-def read_file(file_path):
+def read_features_from_file(file_path):
     """
     Чтение выборки из файла.
     Данные должны быть разделены одним пробелом, содержать только числа и не содержать пропущенных значений
@@ -224,11 +224,15 @@ def read_file(file_path):
 def main():
     file_path = 'KMeansDataSet.txt'
 
-    kmeans = KMeans(5, read_file(file_path))
+    kmeans = KMeans(5, read_features_from_file(file_path))
 
     kmeans.fit()
 
     kmeans.draw_plot()
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(e)
+        exit(1)
